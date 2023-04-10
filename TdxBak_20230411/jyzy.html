@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>交易指引</title>
+    <style>
+    html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #jy-bg {
+        position: relative;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        background: url(help/jyzy/images/jy-bg.jpg) no-repeat;
+        background-size: 100% 100%;
+    }
+    </style>
+</head>
+<body>
+    <div id="jy-bg"></div>
+
+    <script>
+        var container = document.getElementById('jy-bg');
+
+        container.onclick = function() {
+            if (typeof window.TDXQuery === 'function') {
+                window.TDXQuery({
+                    request: JSON.stringify({ 
+                        Method: 'CloseIEDlg',
+                        FuncName: '',
+                        Param: '',
+                     }),
+                    onSuccess: function() {},
+                    onFailure: function() {},
+                });
+            } else {
+                window.external.CloseIEDlg(function() {}, '', '');
+            }
+        }
+    </script>
+</body>
+</html>
